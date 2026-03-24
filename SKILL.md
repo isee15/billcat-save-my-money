@@ -86,10 +86,10 @@ python {baseDir}/scripts/delete_bill.py --bill-id "账单ID" --format md
 # 删除多条账单
 python {baseDir}/scripts/delete_bill.py --bill-id "billId1,billId2" --format pretty
 
-# 统计某个时间范围内的收入和支出
+# 统计某个时间范围内的总的收入和支出
 python {baseDir}/scripts/bill_statistics.py --start-date 20260301 --end-date 20260331 --format md
 
-# 查询某个时间范围内的账本和资产汇总
+# 查询某个时间范围内的账本和资产汇总，也可以统计某个时间范围内的账本或者资产的收入和支出情况
 python {baseDir}/scripts/list_books_assets.py --start-date 20260301 --end-date 20260324 --format md
 
 # 不传日期，直接查询当前可用账本和资产
