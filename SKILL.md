@@ -1,6 +1,7 @@
 ---
 name: billcat-save-my-money
 description: "使用 BillCat API 从自然语言中提取并保存记账信息到乖猫记账 App，并支持删除账单、账单统计、账本与资产列表查询。适合当用户想把一句中文消费/收入描述转成结构化账单、按 billId 删除账单、按时间范围统计收入支出，或查看账本/资产汇总时使用。"
+homepage: https://github.com/isee15/billcat-save-my-money
 metadata: {"openclaw":{"emoji":"🐱","requires":{"env":["BILLCAT_API_KEY"]},"primaryEnv":"BILLCAT_API_KEY"}}
 ---
 
@@ -104,14 +105,14 @@ echo "昨天买咖啡18" | python {baseDir}/scripts/extract_bill.py --stdin --fo
 ### 1. 提取并保存账单
 
 - 调用 `extractbill` 接口
-- 成功后会直接写入一条账单到乖猫记账 App
+- 成功后会保存账单
 - 建议使用 `--format md` 或 `--format pretty`，这样更容易看到返回的 `billId`
 
 ### 2. 删除账单
 
 - 调用 `skill` 接口，`action=delete`
 - 需要传入一个或多个 `billId`
-- 支持逗号分隔批量删除
+- 支持逗号分隔
 
 ### 3. 账单统计
 
@@ -127,8 +128,6 @@ echo "昨天买咖啡18" | python {baseDir}/scripts/extract_bill.py --stdin --fo
 - 每个账本/资产都会附带 `totalIncome`、`totalExpense`、`netAmount`
 
 ## 输出格式
-
-> 注意：每次成功调用接口时，不只是“识别/提取”，而是会实际写入一条账单到乖猫记账 App。
 
 ### raw
 直接返回 BillCat API 原始 JSON。
